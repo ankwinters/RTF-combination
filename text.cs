@@ -41,6 +41,20 @@ namespace text
             }
             return rtf_output+"}";
         }  
+        //combine two or more rtf texts without numbering
+	public static string rtf_combine(string[] rtf_set)
+        {
+            string rtf_output = rtf_set[0];//first RTF text
+            string rtf_temp = null;
+            int i = 1;//length
+            for (i = 1; i < rtf_set.Length; i++)
+            {
+                rtf_temp = get_content(rtf_set[i]);
+                rtf_output = insert_to_end(rtf_temp, rtf_output);
+            }
+            return rtf_output+"}";
+        } 
+
     }
 
 }
